@@ -21,9 +21,15 @@ public class RR {
 				if(in == null)
 					return;
 
-				if(new File(file.getAbsolutePath() + ".decrypted").exists())
-					new File(file.getAbsolutePath() + ".decrypted").delete();
-				Files.write(new File(file.getAbsolutePath() + ".decrypted").toPath(), in, StandardOpenOption.CREATE_NEW);
+//				if(new File(file.getAbsolutePath() + ".decrypted").exists())
+//					new File(file.getAbsolutePath() + ".decrypted").delete();
+				
+				File decrypted_dir = new File("decrypted/");
+				
+				if(!decrypted_dir.exists())
+					  decrypted_dir.mkdirs();
+				
+				Files.write(new File(decrypted_dir, file.getName()).toPath(), in, StandardOpenOption.CREATE_NEW);
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
