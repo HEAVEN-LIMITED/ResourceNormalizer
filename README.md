@@ -1,0 +1,2 @@
+# ResourceNormalizer
+Fix !#CWERD# error
